@@ -1,6 +1,7 @@
 package com.softwareEngineering.mdmatravelbackend.services;
 
 import com.softwareEngineering.mdmatravelbackend.data.models.RegisterUserDto;
+import com.softwareEngineering.mdmatravelbackend.data.models.Siteview;
 import com.softwareEngineering.mdmatravelbackend.data.models.User;
 import com.softwareEngineering.mdmatravelbackend.repositories.UserRepository;
 import com.softwareEngineering.mdmatravelbackend.services.mapper.UserMapper;
@@ -36,6 +37,16 @@ public class UserService {
     }
 
     public User getUserById(long id){
-        return userRepository.findById(id).orElseThrow();
+        return userRepository.findById(id);
     }
+
+
+    public void deleteUserById(long id){
+        userRepository.deleteById(id);
+    }
+
+
+   // public User putUserById(User user){ //image
+    //    return userRepository.updateUserPW(user.getPassword());
+    //}
 }
