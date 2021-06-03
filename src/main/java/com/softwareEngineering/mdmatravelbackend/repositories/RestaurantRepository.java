@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
-    @Modifying
-    @Query("delete from Restaurant r where r.id=:id")
-    long deleteById(long id);
 
     @Modifying
     @Query(value = "select top 1 from Restaurant r where r.id=:id", nativeQuery = true)
@@ -19,11 +16,9 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     @Modifying
     @Query(value = "select * from Restaurant", nativeQuery = true)
-    Restaurant findAll(long id); //zasto mi nije iskoristen
-
+    Restaurant findAll(long id);
     @Modifying
     @Query(value = "UPDATE Restaurant SET restaurantName = :name, details = :details WHERE restaurant.id = id", nativeQuery = true)
     Restaurant updateRestaurant(String name, String details);
 
-    // ADD RECORD ??
 }

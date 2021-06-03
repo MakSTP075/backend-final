@@ -37,7 +37,7 @@ public class HistoricController {
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteById(@RequestBody long id){
+    public void deleteById(@PathVariable long id){
         try{
             historicService.deleteHistoricById(id);
             System.out.println("Successfully deleted Historic");}

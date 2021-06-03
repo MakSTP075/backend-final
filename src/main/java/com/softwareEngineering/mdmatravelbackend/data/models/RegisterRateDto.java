@@ -10,10 +10,6 @@ import javax.persistence.Id;
 
 public class RegisterRateDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private int rate;
 
 }

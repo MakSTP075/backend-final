@@ -15,16 +15,16 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-
 public class HistoricService {
-    private HistoricRepository historicRepository;
-    private HistoricMapper historicMapper;
+    private final HistoricRepository historicRepository;
+    private final HistoricMapper historicMapper;
 
     @Transactional()
     public Historic registerHistoric(RegisterHistoricDto historicRegister) {
         log.debug("Request to REGISTER historic : {}", historicRegister);
         Historic historic = historicMapper.toEntity(historicRegister);
-        historic = historicRepository.save(historic);
+        historicRepository.save(historic);
+
 
         return historic;
     }
@@ -35,7 +35,11 @@ public class HistoricService {
 
 
     public Historic putHistoricById(Historic historic){
-        return  historicRepository.updateHistoric(historic.getHistoricName(),historic.getDetails());
+        Historic oldHistoric = historicRepository.findById(historic.getId()).orElseThrow();
+        oldHistoric.setHistoricName(historic.getHistoricName());
+        oldHistoric.setDetails(historic.getDetails());
+        historicRepository.save(oldHistoric);
+        return  oldHistoric;
     }
 
     public List<Historic> getAllHistoric(){

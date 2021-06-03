@@ -23,7 +23,7 @@ public class CommentService {
     public Comment registerComment(RegisterCommentDto commentRegister) {
         log.debug("Request to REGISTER comment : {}", commentRegister);
         Comment comment = commentMapper.toEntity(commentRegister);
-        comment = commentRepository.save(comment);
+        commentRepository.save(comment);
 
         return comment;
     }

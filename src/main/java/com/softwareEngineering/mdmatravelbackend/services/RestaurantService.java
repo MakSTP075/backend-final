@@ -22,7 +22,7 @@ public class RestaurantService {
     public Restaurant registerRestaurant(RegisterRestaurantDto restaurantRegister) {
         log.debug("Request to REGISTER restaurant : {}", restaurantRegister);
         Restaurant restaurant = restaurantMapper.toEntity(restaurantRegister);
-        restaurant = restaurantRepository.save(restaurant);
+        restaurantRepository.save(restaurant);
 
         return restaurant;
     }
@@ -31,9 +31,12 @@ public class RestaurantService {
         restaurantRepository.deleteById(id);
     }
 
-    //put
-    public Restaurant putRestaurantById(Restaurant restaurant){ //image
-        return  restaurantRepository.updateRestaurant(restaurant.getRestaurantName(),restaurant.getDetails());
+    public Restaurant putRestaurantById(Restaurant restaurant){
+        Restaurant oldRestaurant = restaurantRepository.findById(restaurant.getId()).orElseThrow();
+        oldRestaurant.setRestaurantName(restaurant.getRestaurantName());
+        oldRestaurant.setDetails(restaurant.getDetails());
+        restaurantRepository.save(oldRestaurant);
+        return  oldRestaurant;
     }
 
     public List<Restaurant> getAllRestaurant(){

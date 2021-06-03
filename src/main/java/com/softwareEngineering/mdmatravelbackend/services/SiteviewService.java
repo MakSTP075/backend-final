@@ -1,4 +1,5 @@
 package com.softwareEngineering.mdmatravelbackend.services;
+import com.softwareEngineering.mdmatravelbackend.data.models.Historic;
 import com.softwareEngineering.mdmatravelbackend.data.models.Siteview;
 import com.softwareEngineering.mdmatravelbackend.data.models.RegisterSiteviewDto;
 import com.softwareEngineering.mdmatravelbackend.repositories.SiteviewRepository;
@@ -24,7 +25,7 @@ public class SiteviewService {
     public Siteview registerSiteview(RegisterSiteviewDto siteviewRegister) {
         log.debug("Request to REGISTER siteview : {}", siteviewRegister);
         Siteview siteview = siteviewMapper.toEntity(siteviewRegister);
-        siteview = siteviewRepository.save(siteview);
+        siteviewRepository.save(siteview);
 
         return siteview;
     }
@@ -34,8 +35,12 @@ public class SiteviewService {
     }
 
 
-    public Siteview putSiteviewById(Siteview siteview){ //image
-        return  siteviewRepository.updateSiteview(siteview.getSiteviewName(),siteview.getDetails());
+    public Siteview putSiteviewById(Siteview siteview){
+        Siteview oldSiteview = siteviewRepository.findById(siteview.getId()).orElseThrow();
+        oldSiteview.setSiteviewName(siteview.getSiteviewName());
+        oldSiteview.setDetails(siteview.getDetails());
+        siteviewRepository.save(oldSiteview);
+        return  oldSiteview;
     }
 
     public List<Siteview> getAllSiteview(){

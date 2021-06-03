@@ -23,7 +23,7 @@ public class RateService {
     public Rate registerRate(RegisterRateDto rateRegister) {
         log.debug("Request to REGISTER rate : {}", rateRegister);
         Rate rate = rateMapper.toEntity(rateRegister);
-        rate = rateRepository.save(rate);
+        rateRepository.save(rate);
 
         return rate;
     }

@@ -1,4 +1,5 @@
 package com.softwareEngineering.mdmatravelbackend.repositories;
+import com.softwareEngineering.mdmatravelbackend.data.models.Historic;
 import com.softwareEngineering.mdmatravelbackend.data.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -13,20 +14,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(@Param("email") String email);
 
 
-    @Query("delete from User u where u.id=:id")
-    long deleteById(long id);
-
-
     @Query(value = "select top 1 from User u where u.id=:id", nativeQuery = true)
     User findById(long id);
 
 
     @Query(value = "select * from User", nativeQuery = true)
-    User findAll(long id); // ZASTO MI NIJE ISKORISTEN
+    User findAll(long id);
 
 
-    //@Query(value = "UPDATE User SET password = :pw WHERE user.id = id", nativeQuery = true)
-    //User updateUserPW(String password);
-
-    // ADD ????
+    @Modifying
+    @Query(value = "UPDATE User SET password = :password WHERE user.id = id", nativeQuery = true)
+    User updateUser(String password);
 }

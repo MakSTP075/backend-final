@@ -29,7 +29,7 @@ public class SiteviewController {
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteById(@RequestBody long id){
+    public void deleteById(@PathVariable long id){
         try{
             siteviewService.deleteSiteviewById(id);
             System.out.println("Successfully deleted Siteview");}

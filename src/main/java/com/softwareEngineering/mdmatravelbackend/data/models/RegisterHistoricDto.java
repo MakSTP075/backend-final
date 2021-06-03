@@ -10,9 +10,6 @@ import java.util.List;
 @Data
 
 public class RegisterHistoricDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private String historicName;
 

@@ -1,5 +1,6 @@
 package com.softwareEngineering.mdmatravelbackend.controllers;
 import com.softwareEngineering.mdmatravelbackend.data.models.RegisterUserDto;
+import com.softwareEngineering.mdmatravelbackend.data.models.Restaurant;
 import com.softwareEngineering.mdmatravelbackend.data.models.User;
 import com.softwareEngineering.mdmatravelbackend.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,24 +27,21 @@ public class UserController {
         return userService.registerUser(userRegisterDto);
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     @ResponseStatus(HttpStatus.OK)
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public User getUserById(@PathVariable long id) {
         return userService.getUserById(id);
     }
 
 
-
-
-
-    @DeleteMapping("/deleteUser/{id}")
+    @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteById(@RequestBody long id){
+    public void deleteById(@PathVariable long id){
         try{
             userService.deleteUserById(id);
             System.out.println("Successfully deleted User");}
@@ -52,12 +50,9 @@ public class UserController {
         }
     }
 
-    /*
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     public User putById(@RequestBody User user){
         return userService.putUserById(user);
     }
-
-     */
 }

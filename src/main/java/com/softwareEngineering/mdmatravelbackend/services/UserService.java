@@ -1,5 +1,6 @@
 package com.softwareEngineering.mdmatravelbackend.services;
 
+import com.softwareEngineering.mdmatravelbackend.data.models.Historic;
 import com.softwareEngineering.mdmatravelbackend.data.models.RegisterUserDto;
 import com.softwareEngineering.mdmatravelbackend.data.models.Siteview;
 import com.softwareEngineering.mdmatravelbackend.data.models.User;
@@ -46,7 +47,10 @@ public class UserService {
     }
 
 
-   // public User putUserById(User user){ //image
-    //    return userRepository.updateUserPW(user.getPassword());
-    //}
+    public User putUserById(User user){
+        User oldUser = userRepository.findById(user.getId()).orElseThrow();
+        oldUser.setPassword(user.getPassword());
+        userRepository.save(oldUser);
+        return  oldUser;
+    }
 }

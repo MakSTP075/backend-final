@@ -14,9 +14,7 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
     @Modifying
     @Query(value = "select * from Comment", nativeQuery = true)
-    Comment findAll(long id); // ZASTO MI NIJE ISKORISTEN
-
-    // ADD ?
+    Comment findAll(long id);
 
     // posto ce na svakom itemu npr na restoranu sezam tenis da mi nece oonda ispisat sve komentare iz svih itema nego samo iz tog
 

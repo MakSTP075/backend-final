@@ -10,10 +10,6 @@ import javax.persistence.Id;
 
 public class RegisterCommentDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private String comment;
 
 }
