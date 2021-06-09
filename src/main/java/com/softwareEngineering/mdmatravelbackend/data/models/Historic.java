@@ -24,6 +24,4 @@ public class Historic {
     private String historicName;
 
     private String details;
-
-    // private data type za img
 }

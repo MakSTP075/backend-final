@@ -25,7 +25,6 @@ public class HistoricService {
         Historic historic = historicMapper.toEntity(historicRegister);
         historicRepository.save(historic);
 
-
         return historic;
     }
 

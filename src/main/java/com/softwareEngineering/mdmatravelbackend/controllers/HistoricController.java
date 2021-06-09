@@ -1,5 +1,4 @@
 package com.softwareEngineering.mdmatravelbackend.controllers;
-
 import com.softwareEngineering.mdmatravelbackend.data.models.RegisterHistoricDto;
 import com.softwareEngineering.mdmatravelbackend.data.models.Historic;
 import com.softwareEngineering.mdmatravelbackend.services.HistoricService;
@@ -30,7 +29,7 @@ public class HistoricController {
 
     @GetMapping("/get/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Historic findById(@RequestBody int id){
+    public Historic findById(@RequestBody long id){
         return historicService.getHistoricById(id);
     }
 

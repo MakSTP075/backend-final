@@ -37,7 +37,6 @@ public class RestaurantController {
         }
     }
 
-
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     public Restaurant putById(@RequestBody Restaurant restaurant){

@@ -27,12 +27,23 @@ public class RateController {
         return rateService.getAllRate();
     }
 
-    @GetMapping("/getAvarage")
+    @GetMapping("/getAvarageByRestaurantID/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public double getAvarageRate(){
-        return rateService.avarageRate();
+    public double getAvarageRestaurantRate(@PathVariable long id){
+        return rateService.avarageRestaurantRate(id);
     }
 
+    @GetMapping("/getAvarageByHistoricID/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public double getAvarageHistoricRate(@PathVariable long id){
+        return rateService.avarageHistoricRate(id);
+    }
+
+    @GetMapping("/getAvarageBySiteviewID/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public double getAvarageSiteviewRate(@PathVariable long id){
+        return rateService.avarageSiteviewRate(id);
+    }
 
     @PostMapping("/addRate")
     @ResponseStatus(HttpStatus.OK)

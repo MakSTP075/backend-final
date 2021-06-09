@@ -32,6 +32,21 @@ public class RateService {
         return rateRepository.findAll();
     }
 
+    public double avarageRestaurantRate(long id){
+        return rateRepository.findAvarageRateRestaurantByID(id);
+    }
+
+    public double avarageHistoricRate(long id){
+        return rateRepository.findAvarageRateHistoricByID(id);
+    }
+
+    public double avarageSiteviewRate(long id){
+        return rateRepository.findAvarageRateSiteviewByID(id);
+    }
+
+    /* enum
+
+
     public double avarageRate() { // da izbaci srednju vrijednost npr 4.6 / 5
         List<Rate> rates = getAllRate();
         double total = 0;
@@ -42,4 +57,5 @@ public class RateService {
         averageRate= total /rates.size();
         return averageRate;
     }
+     */
 }

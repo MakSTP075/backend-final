@@ -13,9 +13,15 @@ import org.springframework.stereotype.Repository;
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
     @Modifying
-    @Query(value = "select * from Comment", nativeQuery = true)
-    Comment findAll(long id);
+    @Query(value = "select * from Comment where h.id=:id", nativeQuery = true)
+    Comment findCommentsByHistoricID(long id);
 
-    // posto ce na svakom itemu npr na restoranu sezam tenis da mi nece oonda ispisat sve komentare iz svih itema nego samo iz tog
+    @Modifying
+    @Query(value = "select * from Comment where r.id=:id", nativeQuery = true)
+    Comment findCommentsByRestaurantID(long id);
+
+    @Modifying
+    @Query(value = "select * from Comment where s.id=:id", nativeQuery = true)
+    Comment findCommentsBySiteviewID(long id);
 
 }

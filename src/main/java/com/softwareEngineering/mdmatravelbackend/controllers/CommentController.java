@@ -15,14 +15,27 @@ public class CommentController {
 
     private final CommentService commentService;
 
-    @GetMapping("/getAll")
+    @GetMapping("/getAllByHistoricID/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Iterable<Comment> getAll(){
-        return commentService.getAllComment();
+    public List<Comment> getAllByHistoricID(@PathVariable long id){
+        return commentService.getAllCommentByHistoricID(id);
+    }
+
+    @GetMapping("/getAllByRestaurantID/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Comment> getAllByRestaurantID(@PathVariable long id){
+        return commentService.getAllCommentByRestaurantID(id);
+    }
+
+    @GetMapping("/getAllBySiteviewID/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Comment> getAllBySiteviewID(@PathVariable long id){
+        return commentService.getAllCommentBySiteviewID(id);
     }
 
 
-    @PostMapping("/addComment")
+
+    @PostMapping("/addComment/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Comment register(@RequestBody RegisterCommentDto commentRegisterDto) {
         return commentService.registerComment(commentRegisterDto);

@@ -16,15 +16,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 
 
-public class Restaurant{
+public class CommentRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String restaurantName;
+    private String comment;
 
-    private String details;
-
-
-    // private data type za img
+    private int rate;
 }

@@ -9,9 +9,9 @@ import java.util.List;
 
 @Data
 
-public class RegisterHistoricDto {
+public class RegisterCommentRateDto {
 
-    private String historicName;
+    private String comment;
 
-    private String details;
+    private int rate;
 }

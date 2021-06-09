@@ -21,12 +21,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/register")
-    @ResponseStatus(HttpStatus.OK)
-    public User register(@RequestBody RegisterUserDto userRegisterDto) {
-        return userService.registerUser(userRegisterDto);
-    }
-
     @GetMapping("/getAll")
     @ResponseStatus(HttpStatus.OK)
     public List<User> getUsers() {
@@ -54,5 +48,12 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public User putById(@RequestBody User user){
         return userService.putUserById(user);
+    }
+
+
+    @PostMapping("/register")
+    @ResponseStatus(HttpStatus.OK)
+    public User register(@RequestBody RegisterUserDto userRegisterDto) {
+        return userService.registerUser(userRegisterDto);
     }
 }

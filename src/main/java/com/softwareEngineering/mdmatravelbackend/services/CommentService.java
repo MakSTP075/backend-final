@@ -28,7 +28,16 @@ public class CommentService {
         return comment;
     }
 
-    public List<Comment> getAllComment() {
-        return commentRepository.findAll();
+
+    public List<Comment> getAllCommentByHistoricID(long id) {
+        return commentRepository.findCommentsByHistoricID(id);
+    }
+
+    public List<Comment> getAllCommentByRestaurantID(long id) {
+        return commentRepository.findCommentsByRestaurantID(id);
+    }
+
+    public List<Comment> getAllCommentBySiteviewID(long id) {
+        return commentRepository.findCommentsBySiteviewID(id);
     }
 }

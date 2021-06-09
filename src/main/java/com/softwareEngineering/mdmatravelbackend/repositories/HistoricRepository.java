@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 public interface HistoricRepository extends JpaRepository<Historic, Long> {
 
-    //delete-a svakako jer koristi fabricki delete funkciju iz jparepository
 
     @Modifying
     @Query(value = "select top 1 from Historic h where h.id=:id", nativeQuery = true)
