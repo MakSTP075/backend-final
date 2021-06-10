@@ -1,6 +1,5 @@
 package com.softwareEngineering.mdmatravelbackend.controllers;
 import com.softwareEngineering.mdmatravelbackend.data.models.RegisterUserDto;
-import com.softwareEngineering.mdmatravelbackend.data.models.Restaurant;
 import com.softwareEngineering.mdmatravelbackend.data.models.User;
 import com.softwareEngineering.mdmatravelbackend.services.UserService;
 import lombok.RequiredArgsConstructor;
