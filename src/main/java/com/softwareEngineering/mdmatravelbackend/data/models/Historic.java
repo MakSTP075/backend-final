@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -24,4 +26,7 @@ public class Historic {
     private String historicName;
 
     private String details;
+
+    @OneToMany(mappedBy = "historic")
+    private List<CommentRate> commentAndRates = new ArrayList<>();
 }

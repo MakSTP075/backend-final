@@ -8,10 +8,6 @@ public interface HistoricRepository extends JpaRepository<Historic, Long> {
 
 
     @Modifying
-    @Query(value = "select top 1 from Historic h where h.id=:id", nativeQuery = true)
-    Historic findById(long id);
-
-    @Modifying
     @Query(value = "select * from Historic", nativeQuery = true)
     Historic findAll(long id);
 

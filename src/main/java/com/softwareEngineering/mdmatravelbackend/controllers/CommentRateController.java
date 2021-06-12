@@ -18,23 +18,23 @@ public class CommentRateController {
 
     @GetMapping("/getAllCommentRateByHistoricID/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<CommentRate> getAllByHistoricID(@RequestBody long id){
+    public List<CommentRate> getAllByHistoricID(@PathVariable long id){
         return commentRateService.getAllCommentAndRateByHistoricId(id);
     }
 
     @GetMapping("/getAllCommentRateByRestaurantID/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<CommentRate> getAllByRestaurantID(@RequestBody long id){
+    public List<CommentRate> getAllByRestaurantID(@PathVariable long id){
         return commentRateService.getAllCommentAndRateByRestaurantId(id);
     }
 
     @GetMapping("/getAllCommentRateBySiteviewID/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<CommentRate> getAllBySiteviewID(@RequestBody long id){
+    public List<CommentRate> getAllBySiteviewID(@PathVariable long id){
         return commentRateService.getAllCommentAndRateBySiteviewId(id);
     }
 
-    @PostMapping("/addCommentAndRate/{id}")
+    @PostMapping("/addCommentAndRate")
     @ResponseStatus(HttpStatus.OK)
     public CommentRate register(@RequestBody RegisterCommentRateDto commentRateRegisterDto) {
         return commentRateService.registerCommentRate(commentRateRegisterDto);

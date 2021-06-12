@@ -44,6 +44,6 @@ public class RestaurantService {
     }
 
     public Restaurant getRestaurantById(long id){
-        return restaurantRepository.findById(id); // ne radi mi exception .orElseThrow()
+        return restaurantRepository.findById(id).orElseThrow();
     }
 }

@@ -11,6 +11,14 @@ import java.util.List;
 
 public class RegisterCommentRateDto {
 
+    private long userID;
+
+    private long restaurantID;
+
+    private long historicID;
+
+    private long siteviewID;
+
     private String comment;
 
     private int rate;

@@ -11,10 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface SiteviewRepository extends JpaRepository<Siteview, Long> {
 
     @Modifying
-    @Query(value = "select top 1 from Siteview s where s.id=:id", nativeQuery = true)
-    Siteview findById(long id);
-
-    @Modifying
     @Query(value = "select * from Siteview", nativeQuery = true)
     Siteview findAll(long id); // ZASTO MI NIJE ISKORISTEN
 

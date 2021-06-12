@@ -22,7 +22,7 @@ public class SiteviewController {
 
     @GetMapping("/get/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Siteview findById(@RequestBody int id){
+    public Siteview findById(@PathVariable int id){
         return siteviewService.getSiteviewById(id);
     }
 

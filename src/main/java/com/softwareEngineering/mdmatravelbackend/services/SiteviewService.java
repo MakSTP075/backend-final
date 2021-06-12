@@ -48,6 +48,6 @@ public class SiteviewService {
     }
 
     public Siteview getSiteviewById(long id){
-        return siteviewRepository.findById(id);
-    } //.orElseThrow()
+        return siteviewRepository.findById(id).orElseThrow();
+    }
 }

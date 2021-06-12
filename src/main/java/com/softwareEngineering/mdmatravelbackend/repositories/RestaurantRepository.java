@@ -10,9 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
-    @Modifying
-    @Query(value = "select top 1 from Restaurant r where r.id=:id", nativeQuery = true)
-    Restaurant findById(long id);
 
     @Modifying
     @Query(value = "select * from Restaurant", nativeQuery = true)

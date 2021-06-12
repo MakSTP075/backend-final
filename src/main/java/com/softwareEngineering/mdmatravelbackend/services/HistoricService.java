@@ -46,6 +46,6 @@ public class HistoricService {
     }
 
     public Historic getHistoricById(long id){
-        return historicRepository.findById(id);
+        return historicRepository.findById(id).orElseThrow();
     }
 }

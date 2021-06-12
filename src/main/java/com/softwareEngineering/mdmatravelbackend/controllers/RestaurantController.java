@@ -22,7 +22,7 @@ public class RestaurantController {
 
     @GetMapping("/get/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Restaurant findById(@RequestBody int id){
+    public Restaurant findById(@PathVariable int id){
         return restaurantService.getRestaurantById(id);
     }
 

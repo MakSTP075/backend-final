@@ -29,7 +29,7 @@ public class HistoricController {
 
     @GetMapping("/get/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Historic findById(@RequestBody long id){
+    public Historic findById(@PathVariable long id){
         return historicService.getHistoricById(id);
     }
 

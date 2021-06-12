@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,6 +27,8 @@ public class Restaurant{
 
     private String details;
 
+    @OneToMany(mappedBy = "restaurant")
+    private List<CommentRate> commentAndRates = new ArrayList<>();
 
     // private data type za img
 }
